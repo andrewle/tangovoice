@@ -24,6 +24,11 @@
 		#disqus_thread {
 		    margin: 0 0 30px 0 !important;
 		}
+		#nav {
+		  list-style: none;
+		  margin: 0;
+		  padding: 0;
+		}
 		{CustomCSS}
 	</style>
 </head>
@@ -40,13 +45,20 @@
 <div id="sidebar">
 	<div id="inner-sidebar">
 		<div id="authorbox">
-		<h3>About the author</h3>
-			<img src="{PortraitURL-48}" class="profilepic" alt="{Title}">
+		  <h3>About</h3>
 			{Description}
 			<div class="clear"></div>
-			{block:HasPages}
-				{block:Pages}<h3><a href="{URL}">{Label}</a></h3>{/block:Pages}
-			{/block:HasPages}
+		</div>
+		<div class="more">
+		  <h3>Navigation</h3>
+			<ul id="nav">
+    	  <li><a href="http://tangovoice.com/">Home</a></li>
+        <li><a href="http://tangovoice.com/archive">Archive</a></li>
+        {block:HasPages}
+          {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+        {/block:HasPages}
+    	</ul>
+    	<div class="clear"></div>
 		</div>
 		{block:IfElsewhere}
 		<div class="more">
