@@ -21,6 +21,10 @@
 	<link rel="stylesheet" href="http://static.tumblr.com/j8lh0bq/A1Ukkwf8p/reset.css" type="text/css">
 	<link rel="stylesheet" href="http://static.tumblr.com/j8lh0bq/Nunksbfhp/oldie.css" type="text/css">
 	<style type="text/css" media="screen">
+	  #inner-sidebar .top {
+	    margin: 0 0 25px;
+	  }
+	  
 		#disqus_thread {
 		    margin: 0 0 30px 0 !important;
 		}
@@ -37,10 +41,10 @@
 	<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf-8">
 	 $(document).ready(function () {
-	   $('.meta.posted-by').text(
-	     $('.meta.posted-by').text().replace('andymism', 'Andrew');
-	     $('.meta.posted-by').text().replace('thisrmykitten', 'Kara');
-	   );
+	   $('.meta.posted-by').each(function () {
+	     $(this).text($(this).text().replace('andymism', 'Andrew'));
+	     $(this).text($(this).text().replace('thisrmykitten', 'Kara'));
+	   });
 	 });
 	</script>
 </head>
@@ -56,12 +60,7 @@
 
 <div id="sidebar">
 	<div id="inner-sidebar">
-		<div id="authorbox">
-		  <h3>About</h3>
-			{Description}
-			<div class="clear"></div>
-		</div>
-		<div class="more">
+	  <div class="top">
 		  <h3>Navigation</h3>
 			<ul id="nav">
     	  <li><a href="http://tangovoice.com/">Home</a></li>
@@ -69,8 +68,15 @@
         {block:HasPages}
           {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
         {/block:HasPages}
+        <li><a href="http://tangovoice.com/rss">RSS</a></li>
     	</ul>
     	<div class="clear"></div>
+		</div>
+		
+		<div id="authorbox">
+		  <h3>About</h3>
+			{Description}
+			<div class="clear"></div>
 		</div>
 		{block:IfElsewhere}
 		<div class="more">
