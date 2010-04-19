@@ -29,8 +29,20 @@
 		  margin: 0;
 		  padding: 0;
 		}
+		.meta + .meta {
+		  margin-top: 0;
+		}
 		{CustomCSS}
 	</style>
+	<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	 $(document).ready(function () {
+	   $('.meta.posted-by').text(
+	     $('.meta.posted-by').text().replace('andymism', 'Andrew');
+	     $('.meta.posted-by').text().replace('thisrmykitten', 'Kara');
+	   );
+	 });
+	</script>
 </head>
 <body>
 <div id="main">
@@ -94,6 +106,7 @@
 <div id="post-{PostID}" class="entry text">
 	{block:Title}<h2><a href="{Permalink}" rel="permalink">{Title}</a></h2>{/block:Title}
 	<div class="content">{Body}</div>
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	<div class="meta">{block:Date}{DayOfWeek}, {Month} {DayOfMonth}, {Year}{/block:Date}{block:NoteCount} &mdash; <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}{block:Date}{block:IfDisqusShortname}&nbsp;&nbsp;&nbsp;(<a href="{Permalink}#disqus_thread"></a>){/block:IfDisqusShortname}{/block:Date}{block:More}&nbsp;&nbsp;&nbsp;<a href="{Permalink}">Read more &hellip;</a>{/block:More}</div>
 </div>
 {/block:Text}
@@ -103,6 +116,7 @@
 	<div class="minimeta"><a href="{Permalink}" rel="permalink"><img src="http://static.tumblr.com/j8lh0bq/I27krymjj/pointer.png" alt=""></a></div>
 	<div class="container">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}</div>
 	{block:Caption}<div class="content">{Caption}</div>{/block:Caption}
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Photo}
@@ -112,6 +126,7 @@
 	<div class="minimeta"><a href="{Permalink}" rel="permalink"><img src="http://static.tumblr.com/j8lh0bq/I27krymjj/pointer.png" alt=""></a></div>
 	<div class="container">{Photoset-500}</div>
 	{block:Caption}<div class="content">{Caption}</div>{/block:Caption}
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Photoset}
@@ -121,6 +136,7 @@
 	<div class="minimeta"><a href="{Permalink}" rel="permalink"><img src="http://static.tumblr.com/j8lh0bq/I27krymjj/pointer.png" alt=""></a></div>
 	<h2>{Quote}</h2>
 	{block:Source}<div class="content">{Source}</div>{/block:Source}
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Quote}
@@ -130,6 +146,7 @@
 	<div class="minimeta"><a href="{Permalink}" rel="permalink"><img src="http://static.tumblr.com/j8lh0bq/I27krymjj/pointer.png" alt=""></a></div>
 	<h2><a href="{URL}" {Target}>{Name}</a></h2>
 	{block:Description}<div class="content">{Description}</div>{/block:Description}
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Link}
@@ -143,6 +160,7 @@
 			{block:Lines}<li class="{Alt}">{block:Label}<span class="label">{Label}</span> {/block:Label}{Line}</li>{/block:Lines}
 		</ul>
 	</div>
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Chat}
@@ -152,6 +170,7 @@
 	<div class="minimeta"><a href="{Permalink}" rel="permalink"><img src="http://static.tumblr.com/j8lh0bq/I27krymjj/pointer.png" alt=""></a></div>
 	<div class="container">{AudioPlayerWhite}</div>
 	{block:Caption}<div class="content">{Caption}</div>{/block:Caption}
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Audio}
@@ -161,6 +180,7 @@
 	<div class="minimeta"><a href="{Permalink}" rel="permalink"><img src="http://static.tumblr.com/j8lh0bq/I27krymjj/pointer.png" alt=""></a></div>
 	<div class="container">{Video-500}</div>
 	{block:Caption}<div class="content">{Caption}</div>{/block:Caption}
+	<div class="meta posted-by">Posted by {PostAuthorName}</div>
 	{block:Date}{block:IfDisqusShortname}<div class="meta">(<a href="{Permalink}#disqus_thread"></a>)</div>{/block:IfDisqusShortname}{/block:Date}
 </div>
 {/block:Video}
